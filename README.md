@@ -23,14 +23,26 @@ Think of it as a **LangChain killer** — 100% private, no dependencies, fast an
 [LibreChat or CLI]
         │
         ▼
-     [ GoMind ]  ←←←←←←←←←←←←←←←←←←←←←←←←←←
-     (MCP Core)                           │
-        │                                │
+     [ GoMind ]  ←←←←←←←←←←←←←←←←←←←←←←←←
+        │                               │
+        │                               │
+        ├──→ Receives natural language question (e.g. "What is GoMind?")
+        │                               │
+        ├──→ Parses question and identifies required data sources
+        │                               │
+        │                               ├──→ [Obsidian Reader Agent] (MCP Core)
+        │                               │
+        │                               ├──→ [Vector Search Agent] (MCP Core)
+        │                               │
+        │                               └──→ [Other Agents]
+     (MCP Core)                         │
+        │                               │
         ├──→ Publishes requests via Hermes ("query.obsidian", "query.search", ...)
-        │                                │
+        │                               │
         ├──← Receives responses via Hermes (with correlation ID)
-        │
+        │                               │
         └──→ Assembles context + sends prompt to LLM (Ollama)
+        │
         ▼
     [ Local Response ]
 ```
