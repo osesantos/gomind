@@ -86,7 +86,15 @@ Think of it as a **LangChain killer** — 100% private, no dependencies, fast an
 ```bash
 git clone https://github.com/osesantos/gomind
 cd gomind
-go run main.go
+go run src/main.go
+```
+
+```bash
+# Test with curl
+curl -X POST http://localhost:4433/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question": "What is GoMind?"}'
+
 ```
 
 Make sure you have:
