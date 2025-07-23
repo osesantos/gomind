@@ -72,7 +72,7 @@ Think of it as a **LangChain killer** — 100% private, no dependencies, fast an
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/your-user/gomind
+git clone https://github.com/osesantos/gomind
 cd gomind
 go run main.go
 ```
@@ -97,4 +97,4 @@ Inspired by:
 - Personal RAG workflows
 - Modular AI design
 
-Built by [@your-handle](https://github.com/your-user)
+Built by [osesantos](https://github.com/osesantos)
