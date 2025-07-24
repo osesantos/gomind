@@ -8,10 +8,13 @@ import (
 	"github.com/osesantos/gomind/src/internal/model"
 )
 
+// TODO: Change the these const to the actual URL of your Ollama server inside the cluster, use Environment variables to set it.
 const (
-	MODEL  = "mistral"
+	// MODEL is the name of the model to use for Ollama.
+	MODEL = "mistral"
+	// STREAM indicates whether the response should be streamed or not.
 	STREAM = false
-	// TODO: Change this to the actual URL of your Ollama server inside the cluster
+	// URL is the URL of the Ollama API endpoint.
 	URL = "http://localhost:11434/api/generate"
 )
 
@@ -23,7 +26,7 @@ const (
 // "prompt": "If Alice is older than Bob, and Bob is older than Charlie, who is the oldest?",
 // "stream": false
 // }
-func Prompt(question string) (string, error) {
+func Prompt(client *http.Client, question string) (string, error) {
 	jsonData, err := json.Marshal(model.OllamaRequest{
 		Model:  MODEL,
 		Prompt: question,
@@ -33,7 +36,6 @@ func Prompt(question string) (string, error) {
 		return "", err
 	}
 
-	client := http.Client{}
 	req, err := http.NewRequest(http.MethodPost, URL, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return "", err

@@ -30,8 +30,8 @@ func askHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("💬 Received question: %s", req.Question)
 
 	// For now we'll use the ollama package to process the question
-	// In the future, This will call the MCP to process the question
-	ollamaResp, err := ollama.Prompt(req.Question)
+	// In the future, This will call the brain package to process the question
+	ollamaResp, err := ollama.Prompt(&http.Client{}, req.Question)
 	if err != nil {
 		log.Printf("❌ Error processing question: %v", err)
 		http.Error(w, "Failed to process question", http.StatusInternalServerError)
