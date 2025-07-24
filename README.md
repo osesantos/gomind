@@ -1,4 +1,5 @@
 # 🧠 GoMind
+[![Go](https://github.com/osesantos/gomind/actions/workflows/go.yml/badge.svg)](https://github.com/osesantos/gomind/actions/workflows/go.yml)
 
 > A lightweight, modular MCP (Multi-Component Protocol) server written in Go, focused on **Private RAG (Retrieval-Augmented Generation)** powered by local LLMs and your personal data.
 
